@@ -9,7 +9,11 @@ void main() {
 
 class MyApp extends StatefulWidget {
   @override
-  _MyAppState createState() => _MyAppState();
+  State<StatefulWidget> createState() {
+    return _MyAppState();
+  }
+
+
 }
 
 class _MyAppState extends State<MyApp> {
@@ -18,7 +22,7 @@ class _MyAppState extends State<MyApp> {
 
   void resetQuiz() {
     setState(() {
-       questionIndex = 0;
+      questionIndex = 0;
       totalScore = 0;
     });
   }
@@ -70,12 +74,12 @@ class _MyAppState extends State<MyApp> {
 
     return MaterialApp(
         home: Scaffold(
-      appBar: AppBar(
-        title: Text('My first App'),
-      ),
-      body: questionIndex < questions.length
-          ? Quiz(questions, ButtonPressed, questionIndex)
-          : Result(totalScore,resetQuiz),
-    ));
+          appBar: AppBar(
+            title: Text('My first App'),
+          ),
+          body: questionIndex < questions.length
+              ? Quiz(questions, ButtonPressed, questionIndex)
+              : Result(totalScore, resetQuiz),
+        ));
   }
 }
